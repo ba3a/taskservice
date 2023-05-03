@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "7e6878b8-5dde-4f88-85b4-ea66157dd40b",
+		"name": "Task service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27192155"
+	},
+	"item": [
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get completion report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reports/completion?startDate=2000-10-31T01:30:00.000-05:00&endDate=2030-10-31T01:30:00.000-05:00",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"completion"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2000-10-31T01:30:00.000-05:00"
+						},
+						{
+							"key": "endDate",
+							"value": "2030-10-31T01:30:00.000-05:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create task",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Task title\",\r\n    \"description\":\"Task description\",\r\n    \"dueDate\":1683151618,\r\n    \"priority\":\"BLOCKER\",\r\n    \"status\":\"IN_PROGRESS\",\r\n    \"assigneeId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update task",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"New task title\",\r\n    \"status\":\"DONE\",\r\n    \"assigneeId\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tasks/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create task inactive employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Task title\",\r\n    \"description\":\"Task description\",\r\n    \"dueDate\":168315161800,\r\n    \"priority\":\"BLOCKER\",\r\n    \"status\":\"IN_PROGRESS\",\r\n    \"assigneeId\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create task not existing employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Task title\",\r\n    \"description\":\"Task description\",\r\n    \"dueDate\":168315161800,\r\n    \"priority\":\"BLOCKER\",\r\n    \"status\":\"IN_PROGRESS\",\r\n    \"assigneeId\":55\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
